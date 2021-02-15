@@ -1,0 +1,32 @@
+#customize-controls .control-section-lili-blog .accordion-section-title:hover,
+#customize-controls .control-section-lili-blog .accordion-section-title:focus {
+	background-color: #fff;
+}
+
+.control-section-lili-blog .accordion-section-title .button {
+	margin-top:  -4px;
+	font-weight: 400;
+	margin-left: 8px;
+}
+
+	.rtl .control-section-lili-blog .accordion-section-title .button {
+		margin-left:  0;
+		margin-right: 8px;
+	}
+	.at-pro,li#accordion-panel-theme_option_panel h3.accordion-section-title, #widget-30_author-widget-__i__ .widget .widget-top,
+	 li#accordion-panel-lili_blog_panel h3 
+	{
+		background: #dd3333!important;
+		color: #fff!important;
+		box-shadow: none!important;
+	}
+	li#accordion-panel-lili_blog_panel h3:after{color:#FFF !important;}
+
+	#accordion-section-lili-blog .wp-core-ui .button, .wp-core-ui .button-secondary, #accordion-panel-lili_blog_panel
+	{
+		border-color: #dd3333!important;
+	}
+.at-pro:hover {
+	background: #dd3333!important;
+	color: #fff!important;
+}
