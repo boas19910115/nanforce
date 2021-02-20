@@ -11,7 +11,6 @@
 
 add_action('rest_api_init', 'register_routes');
 
-
 function register_routes()
 {
     register_rest_route('pixet/v1', '/access', array(
@@ -21,7 +20,9 @@ function register_routes()
 }
 
 
-function get_is_access($data)
+function get_is_access()
 {
-    return 'Access api "pixet: v1" successfully';
+    $post =
+        ['status_code' => 200, 'msg' => 'Access api "pixet: v1" successfully'];
+    return $post;
 }
