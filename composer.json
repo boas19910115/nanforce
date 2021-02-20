@@ -1,0 +1,15 @@
+{
+    "name": "root/nanforce.com",
+    "description": "Wordpress website for Blog hosting",
+    "type": "library",
+    "require": {
+        "pixnet/php-sdk": "@stable"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yuehnan Wu",
+            "email": "joram19910115@gmail.com"
+        }
+    ]
+}
