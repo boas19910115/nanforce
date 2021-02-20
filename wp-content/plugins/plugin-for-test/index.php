@@ -1,18 +1,27 @@
 <?php
 
 /**
- * Plugin Name: My First Plugin
- * Plugin URI: http://www.mywebsite.com/my-first-plugin
- * Description: The very first plugin that I have ever created.
+ * Plugin Name: Pixet integration
+ * Plugin URI: https://nanforce.com
+ * Description: For the custom wordpress plugin which is to integrate with pixet.com
  * Version: 1.0
- * Author: Your Name
- * Author URI: http://www.mywebsite.com
+ * Author: Yuehnan, Wu
+ * Author URI: https://nanforce.com
  */
 
+add_action('rest_api_init', 'register_routes');
 
-add_action('the_content', 'my_thank_you_text');
 
-function my_thank_you_text($content)
+function register_routes()
 {
-    return $content .= '<p>Thank you for reading!</p>';
+    register_rest_route('pixet/v1', '/access', array(
+        'methods' => 'GET',
+        'callback' => 'get_is_access',
+    ));
+}
+
+
+function get_is_access($data)
+{
+    return 'Access api "pixet: v1" successfully';
 }
