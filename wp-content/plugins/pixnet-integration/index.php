@@ -8,7 +8,7 @@
  * Author: Yuehnan, Wu
  * Author URI: https://nanforce.com
  */
-require_once(__DIR__ . '/src/PIXNET/Loader.php');
+require_once(__DIR__ . '/lib/pixnet-sdk/Loader.php');
 
 $pixapi = new PixAPI(array(
     'key'  => '1e547b8651056884c27da3b5f635f831',
@@ -40,5 +40,6 @@ function get_is_access()
 
 function get_pixet_auth_callback()
 {
-    return 
+    $post = $pixapi->blog->info();
+    return $post;
 }
