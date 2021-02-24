@@ -15,7 +15,6 @@ add_action('rest_api_init', 'register_routes');
 
 function register_routes()
 {
-    $pixnetMethods = new PixnetMethods();
     register_rest_route('pixnet/v1', '/access', array(
         'methods' => 'GET',
         'callback' => 'get_is_access',
@@ -26,7 +25,7 @@ function register_routes()
     ));
     register_rest_route('pixnet/v1', '/blog-info', array(
         'methods' => 'GET',
-        'callback' => $pixnetMethods->get_blog_info,
+        'callback' => 'get_blog_info',
     ));
 }
 
@@ -43,24 +42,33 @@ function get_pixet_auth_callback()
     return 'none';
 }
 
-class PixnetMethods
+function  get_blog_info()
 {
-    private  $pixapi;
+    require_once(__DIR__ . '/init.inc.php');
 
-    public function __construct()
-    {
-        require_once(__DIR__ . '/init.inc.php');
-        $this->pixapi = new PixAPI(array(
-            'key'  => '1e547b8651056884c27da3b5f635f831',
-            'secret' => 'a7982792fec1e47fa49abc18fc789ef6',
-            'callback' => 'https://nanforce.com/wp-json/pixet/v1/auth-callback'
-        ));;
-    }
+    $apiList = $pixapi->getAPIList();
 
-
-    public function  get_blog_info()
-    {
-        $apiList = $this->pixapi->getAPIList();
-        return $apiList;
-    }
+    return $apiList;
 }
+
+// class PixnetMethods
+// {
+//     private  $pixapi;
+
+//     public function __construct()
+//     {
+//         require_once(__DIR__ . '/init.inc.php');
+//         $this->pixapi = new PixAPI(array(
+//             'key'  => '1e547b8651056884c27da3b5f635f831',
+//             'secret' => 'a7982792fec1e47fa49abc18fc789ef6',
+//             'callback' => 'https://nanforce.com/wp-json/pixet/v1/auth-callback'
+//         ));;
+//     }
+
+
+//     public function  get_blog_info()
+//     {
+//         $apiList = $this->pixapi->getAPIList();
+//         return $apiList;
+//     }
+// }
