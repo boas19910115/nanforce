@@ -46,7 +46,7 @@ function  get_blog_info()
 {
     require_once(__DIR__ . '/init.inc.php');
 
-    $apiList = $pixapi->blog->info();
+    $apiList = $pixapi->blog->info('dorkas3000');
 
     return $apiList;
 }
